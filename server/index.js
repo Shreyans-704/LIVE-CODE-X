@@ -124,7 +124,7 @@ const executeCode = (code, language) => {
 			interpreter = 'ruby';
 			break;
 		default:
-			const supportedLanguages = ['python3', 'javascript', 'cpp', 'c', 'java', 'ruby'];
+			const supportedLanguages = ['python3', 'javascript', 'cpp', 'c', 'java', 'ruby', 'nodejs', 'bash'];
 			throw new Error(`Language '${language}' is not supported. Supported languages: ${supportedLanguages.join(', ')}`);
 	}
 	
@@ -141,13 +141,15 @@ const executeCode = (code, language) => {
 			output = execSync(`${interpreter} "${filePath}"`, { 
 				encoding: 'utf-8',
 				maxBuffer: 1024 * 1024 * 10,
-				timeout: 10000
+				timeout: 10000,
+				stdio: 'pipe'
 			});
 		} else if (language === 'nodejs') {
 			output = execSync(`${interpreter} "${filePath}"`, { 
 				encoding: 'utf-8',
 				maxBuffer: 1024 * 1024 * 10,
-				timeout: 10000
+				timeout: 10000,
+				stdio: 'pipe'
 			});
 		} else if (language === 'bash') {
 			output = execSync(`${interpreter} "${filePath}"`, { 
@@ -207,8 +209,16 @@ app.post('/compile', async (req, res) => {
 		const output = executeCode(code, language);
 		return res.json({ output: output || '(No output)' });
 	} catch (error) {
-		const errorMessage = error.message || 'Failed to execute code';
-		console.error('Execution error:', errorMessage);
+		let errorMessage = error.message || 'Failed to execute code';
+		
+		// Provide user-friendly error messages
+		if (errorMessage.includes('ENOENT') || errorMessage.includes('not found')) {
+			errorMessage = `Interpreter not found. Make sure ${(error.message.match(/python3|node|g\+\+|gcc|java|ruby|bash/) || ['your language'])[0]} is installed on the server.`;
+		} else if (errorMessage.includes('TIMEOUT')) {
+			errorMessage = 'Code execution timeout (max 10 seconds)';
+		}
+		
+		console.error('Execution error:', error.message);
 		return res.status(500).json({ error: errorMessage, success: false });
 	}
 });

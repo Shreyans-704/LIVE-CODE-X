@@ -7,7 +7,7 @@ import { useNavigate, useLocation, useParams, Navigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import axios from "axios";
 
-const API_BASE = process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : '';
+const API_BASE = process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : process.env.REACT_APP_BACKEND_URL || '';
 
 const LANGUAGES = [
     "python3",
