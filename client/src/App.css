@@ -1,63 +1,98 @@
+/* ===== PREMIUM DESIGN SYSTEM ===== */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1a2847;
+  --bg-tertiary: #2d3e5f;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #3b82f6;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border-color: #334155;
+  --success: #10b981;
+  --danger: #ef4444;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
 .App {
-  text-align: center;
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background: var(--bg-primary);
   min-height: 100vh;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
 
 .App-header {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background: var(--bg-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-primary);
 }
 
-.App-link {
-  color: #FFD700;
-  transition: all 0.3s ease;
-}
-
-.App-link:hover {
-  color: #FFEB3B;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* ===== SCROLLBAR ===== */
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 *::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--bg-secondary);
+  border-radius: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #FFD700;
-  border-radius: 4px;
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 8px;
+  border: 2px solid var(--bg-secondary);
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #FFEB3B;
+  background: linear-gradient(180deg, var(--accent-secondary), var(--accent-tertiary));
+}
+
+/* ===== SMOOTH ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
