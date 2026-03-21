@@ -45,17 +45,17 @@ function EditorPage() {
     const socketRef = useRef(null);
 
     useEffect(() => {
+        const handleErrors = (e) => {
+            console.log("Socket Error: ", e);
+            toast.error("Socket connection failed");
+            navigate("/");
+        }
+
         const init = async () => {
             socketRef.current = await initSocket();
             setSocket(socketRef.current);
             socketRef.current.on('connect_error', (err) => handleErrors(err));
             socketRef.current.on('connect_failed', (err) => handleErrors(err));
-            
-            const handleErrors = (e) => {
-                console.log("Socket Error: ", e);
-                toast.error("Socket connection failed");
-                navigate("/");
-            }
             
             socketRef.current.emit('join', {
                 roomid,

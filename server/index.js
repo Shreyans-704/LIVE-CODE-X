@@ -16,17 +16,18 @@ const clientOrigin = process.env.CLIENT_URL || 'http://localhost:3000';
 const server = http.createServer(app);
 const io = new Server(
 	server,
-	isProduction
-		? {}
-		: {
-			cors: {
-				origin: clientOrigin,
-			},
-		}
+	{
+		cors: {
+			origin: clientOrigin,
+			methods: ["GET", "POST"],
+		},
+	}
 );
 
 if (!isProduction) {
 	app.use(cors({ origin: clientOrigin }));
+} else {
+	app.use(cors({ origin: clientOrigin, credentials: true }));
 }
 app.use(express.json());
 
