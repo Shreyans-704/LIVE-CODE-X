@@ -93,6 +93,7 @@
 .editor-sidebar {
     width: 300px;
     background: linear-gradient(180deg, rgba(26, 40, 71, 0.7) 0%, rgba(26, 40, 71, 0.4) 100%);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-right: 1px solid rgba(148, 163, 184, 0.2);
     display: flex;
@@ -227,6 +228,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
 
@@ -356,6 +358,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    -webkit-backdrop-filter: blur(10px);
     background: linear-gradient(135deg, rgba(26, 40, 71, 0.95) 0%, rgba(26, 40, 71, 0.8) 100%);
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(148, 163, 184, 0.2);

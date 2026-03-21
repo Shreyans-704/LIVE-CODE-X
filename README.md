@@ -1,5 +1,6 @@
-Live webiste :- https://live-code-x.netlify.app/
 # 🚀 Live Codex
+
+[Live website](https://live-code-x.netlify.app/)
 
 A real‑time collaborative code editor with rooms, built with React (CRA) and Express + Socket.IO. The server can serve the production React build, so you can deploy as a single Node service.
 
@@ -16,9 +17,8 @@ A real‑time collaborative code editor with rooms, built with React (CRA) and E
 - 🖥️ Client: React 18, React Router, CodeMirror 5, Bootstrap, react-hot-toast
 - 🛠️ Server: Node.js (>= 18), Express 5, Socket.IO, CORS (dev only)
 
+## Preview of the website
 
-## Preview of the website :-
-<img width="1266" height="854" alt="image" src="https://github.com/user-attachments/assets/803c7c11-7103-4d96-818d-6aeea54bb72a" />
-<img width="1914" height="868" alt="image" src="https://github.com/user-attachments/assets/637a3165-578d-42e6-9870-0741020f9138" />
-
+![Preview 1](https://github.com/user-attachments/assets/803c7c11-7103-4d96-818d-6aeea54bb72a)
+![Preview 2](https://github.com/user-attachments/assets/637a3165-578d-42e6-9870-0741020f9138)
 
