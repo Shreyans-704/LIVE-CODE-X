@@ -1,0 +1,107 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="blur-light">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+    </filter>
+    <filter id="blur-medium">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" />
+    </filter>
+    <filter id="blur-heavy">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a2847;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1a2e;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glow-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Gradient -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+
+  <!-- Glow orbs (background, heavily blurred) -->
+  <circle cx="200" cy="150" r="300" fill="url(#glow-blue)" filter="url(#blur-heavy)" opacity="0.4"/>
+  <circle cx="1700" cy="900" r="400" fill="url(#glow-purple)" filter="url(#blur-heavy)" opacity="0.3"/>
+  <circle cx="1500" cy="200" r="350" fill="url(#glow-blue)" filter="url(#blur-heavy)" opacity="0.35"/>
+
+  <!-- Left side floating code elements (background layer) -->
+  <g opacity="0.25" filter="url(#blur-heavy)">
+    <text x="150" y="200" font-family="'Fira Code', monospace" font-size="32" fill="#6366f1" font-weight="500">const x = 42</text>
+    <text x="120" y="350" font-family="'Fira Code', monospace" font-size="28" fill="#8b5cf6">function() {}</text>
+    <text x="180" y="520" font-family="'Fira Code', monospace" font-size="26" fill="#6366f1">if (true) {</text>
+    <text x="100" y="750" font-family="'Fira Code', monospace" font-size="30" fill="#8b5cf6">let data = []</text>
+  </g>
+
+  <!-- Right side floating code elements (background layer) -->
+  <g opacity="0.25" filter="url(#blur-heavy)">
+    <text x="1650" y="250" font-family="'Fira Code', monospace" font-size="32" fill="#6366f1">var result</text>
+    <text x="1620" y="450" font-family="'Fira Code', monospace" font-size="28" fill="#8b5cf6">=&gt; async</text>
+    <text x="1680" y="680" font-family="'Fira Code', monospace" font-size="26" fill="#6366f1">for (;;) {</text>
+    <text x="1650" y="900" font-family="'Fira Code', monospace" font-size="30" fill="#8b5cf6">temp = null</text>
+  </g>
+
+  <!-- Symbol elements (background layer) -->
+  <g opacity="0.2" filter="url(#blur-heavy)" font-family="'Fira Code', monospace" font-size="48" fill="#6366f1">
+    <text x="300" y="100">&lt;/&gt;</text>
+    <text x="1650" y="350">{}</text>
+    <text x="250" y="900">[]</text>
+    <text x="1750" y="750">()</text>
+  </g>
+
+  <!-- Mid-ground code elements (medium blur) -->
+  <g opacity="0.35" filter="url(#blur-medium)">
+    <text x="400" y="300" font-family="'Fira Code', monospace" font-size="28" fill="#6366f1">while (true)</text>
+    <text x="1300" y="600" font-family="'Fira Code', monospace" font-size="26" fill="#8b5cf6">return data</text>
+    <text x="600" y="850" font-family="'Fira Code', monospace" font-size="24" fill="#6366f1">class App {}</text>
+    <text x="1400" y="250" font-family="'Fira Code', monospace" font-size="26" fill="#8b5cf6">new Promise</text>
+  </g>
+
+  <!-- Symbol elements (mid-ground) -->
+  <g opacity="0.3" filter="url(#blur-medium)" font-family="'Fira Code', monospace" font-size="40" fill="#8b5cf6">
+    <text x="900" y="200">==</text>
+    <text x="500" y="650">=&gt;</text>
+    <text x="1100" y="900">&lt;=</text>
+    <text x="700" y="400">&amp;&amp;</text>
+  </g>
+
+  <!-- Foreground code elements (light blur - more readable) -->
+  <g opacity="0.45" filter="url(#blur-light)">
+    <text x="800" y="350" font-family="'Fira Code', monospace" font-size="32" fill="#6366f1" font-weight="600">const app</text>
+    <text x="950" y="500" font-family="'Fira Code', monospace" font-size="28" fill="#8b5cf6">socket.on()</text>
+    <text x="700" y="700" font-family="'Fira Code', monospace" font-size="26" fill="#6366f1">await compile()</text>
+    <text x="1100" y="800" font-family="'Fira Code', monospace" font-size="24" fill="#8b5cf6">emit('data')</text>
+  </g>
+
+  <!-- Glow circles around key elements -->
+  <circle cx="800" cy="350" r="80" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.15" filter="url(#glow)"/>
+  <circle cx="950" cy="500" r="70" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.15" filter="url(#glow)"/>
+
+  <!-- Edge detail elements -->
+  <g opacity="0.15" filter="url(#blur-medium)" font-family="'Fira Code', monospace" font-size="20" fill="#6366f1">
+    <text x="100" y="100">import</text>
+    <text x="1850" y="150">export</text>
+    <text x="80" y="1000">module</text>
+    <text x="1820" y="1020">require</text>
+    <text x="950" y="80">// collaborative</text>
+    <text x="850" y="1050">// real-time</text>
+  </g>
+
+  <!-- Subtle accent bars -->
+  <line x1="0" y1="540" x2="1920" y2="540" stroke="#6366f1" stroke-width="1" opacity="0.05"/>
+  <line x1="960" y1="0" x2="960" y2="1080" stroke="#8b5cf6" stroke-width="1" opacity="0.05"/>
+</svg>
