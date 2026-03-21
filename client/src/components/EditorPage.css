@@ -490,6 +490,8 @@
 .compiler-output::-webkit-scrollbar-thumb:hover {
     background: rgba(99, 102, 241, 0.5);
 }
+
+.compiler-run:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
@@ -505,66 +507,8 @@
 }
 
 .compiler-close:hover {
-    background: #d1d5db;
-}
-
-/* Compiler Output */
-.compiler-output {
-    flex: 1;
-    padding: 16px 24px;
-    margin: 0;
-    overflow-y: auto;
-    font-family: 'Monaco', 'Courier New', monospace;
-    font-size: 14px;
-    line-height: 1.8;
-    color: #1f2937;
-    background: #ffffff;
-    border: none;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    font-weight: 500;
-}
-
-/* CodeMirror Styling */
-.CodeMirror {
-    height: 100% !important;
-    font-family: 'Monaco', 'Courier New', monospace !important;
-    font-size: 14px !important;
-}
-
-.CodeMirror-gutters {
-    background: #f9fafb !important;
-    border-right: 1px solid #e5e7eb !important;
-}
-
-.CodeMirror-linenumber {
-    color: #9ca3af !important;
-}
-
-.CodeMirror-cursor {
-    border-left: 2px solid #3b82f6 !important;
-}
-
-/* ===== SCROLLBAR ===== */
-.clients-list::-webkit-scrollbar,
-.compiler-output::-webkit-scrollbar {
-    width: 6px;
-}
-
-.clients-list::-webkit-scrollbar-track,
-.compiler-output::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.clients-list::-webkit-scrollbar-thumb,
-.compiler-output::-webkit-scrollbar-thumb {
-    background: #d1d5db;
-    border-radius: 3px;
-}
-
-.clients-list::-webkit-scrollbar-thumb:hover,
-.compiler-output::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af;
+    background: rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.5);
 }
 
 /* ===== RESPONSIVE ===== */
