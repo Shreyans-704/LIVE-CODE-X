@@ -1,3 +1,4 @@
+Live webiste :- 
 # 🚀 Live Codex
 
 A real‑time collaborative code editor with rooms, built with React (CRA) and Express + Socket.IO. The server can serve the production React build, so you can deploy as a single Node service.
@@ -24,6 +25,7 @@ Live-Dev_v2/
   package.json      # Root scripts to build/start both
   .gitignore
 ```
+<img width="337" height="635" alt="image" src="https://github.com/user-attachments/assets/60343534-8e64-46a2-9c77-2aa19bb216d6" />
 
 ## 🗂️ Folder Structure Details
 
