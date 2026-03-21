@@ -25,7 +25,7 @@ Live-Dev_v2/
   package.json      # Root scripts to build/start both
   .gitignore
 ```
-<img width="1266" height="854" alt="image" src="https://github.com/user-attachments/assets/3d2d4956-1259-4d56-a708-a1f8dfb63960" />
+
 
 
 ## 🗂️ Folder Structure Details
@@ -69,6 +69,8 @@ Live-Dev_v2/
 - `package.json` (root):
   - `build`: installs client deps, builds client, installs server deps
   - `start`: runs server in production mode to serve the built client
+
+<img width="1266" height="854" alt="image" src="https://github.com/user-attachments/assets/803c7c11-7103-4d96-818d-6aeea54bb72a" />
 
 ## ▶️ Quick Start
 
