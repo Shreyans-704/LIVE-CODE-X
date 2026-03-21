@@ -11,24 +11,69 @@ const http = require('http');
 const { Server } = require('socket.io');
 
 const isProduction = String(process.env.NODE_ENV || '').toLowerCase() === 'production';
-const clientOrigin = process.env.CLIENT_URL || 'http://localhost:3000';
+const clientUrl = process.env.CLIENT_URL || 'http://localhost:3000';
+
+// Normalize the URL (remove trailing slash, ensure https in production)
+const normalizeUrl = (url) => url.replace(/\/$/, '');
+const clientOrigin = normalizeUrl(clientUrl);
+
+// For CORS, accept the origin with or without trailing slash
+const corsOrigins = [clientOrigin, clientOrigin + '/'];
 
 const server = http.createServer(app);
 const io = new Server(
 	server,
 	{
 		cors: {
-			origin: clientOrigin,
+			origin: (origin, callback) => {
+				// Allow requests with no origin (like mobile apps or curl requests)
+				if (!origin) return callback(null, true);
+				
+				// Check if origin matches any allowed origin
+				const isAllowed = corsOrigins.some(allowedOrigin => 
+					origin === allowedOrigin || origin === allowedOrigin + '/'
+				);
+				
+				if (isAllowed) {
+					callback(null, true);
+				} else if (!isProduction) {
+					// In development, allow all
+					callback(null, true);
+				} else {
+					console.error(`CORS blocked: ${origin} not in [${corsOrigins.join(', ')}]`);
+					callback(new Error('Not allowed by CORS'));
+				}
+			},
 			methods: ["GET", "POST"],
+			credentials: true
 		},
 	}
 );
 
-if (!isProduction) {
-	app.use(cors({ origin: clientOrigin }));
-} else {
-	app.use(cors({ origin: clientOrigin, credentials: true }));
-}
+// CORS middleware for Express
+app.use(cors({
+	origin: (origin, callback) => {
+		// Allow requests with no origin
+		if (!origin) return callback(null, true);
+		
+		// Check if origin matches
+		const isAllowed = corsOrigins.some(allowedOrigin => 
+			origin === allowedOrigin || origin === allowedOrigin + '/'
+		);
+		
+		if (isAllowed) {
+			callback(null, true);
+		} else if (!isProduction) {
+			callback(null, true);
+		} else {
+			callback(new Error('CORS not allowed'));
+		}
+	},
+	credentials: true,
+	methods: ['GET', 'POST', 'OPTIONS'],
+	allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
 
 const userSocketMap = {};
