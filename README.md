@@ -27,8 +27,9 @@ Live-Dev_v2/
 ```
 
 ## Preview of the website :-
-<img width="1914" height="868" alt="image" src="https://github.com/user-attachments/assets/637a3165-578d-42e6-9870-0741020f9138" />
 <img width="1266" height="854" alt="image" src="https://github.com/user-attachments/assets/803c7c11-7103-4d96-818d-6aeea54bb72a" />
+<img width="1914" height="868" alt="image" src="https://github.com/user-attachments/assets/637a3165-578d-42e6-9870-0741020f9138" />
+
 
 ## 🗂️ Folder Structure Details
 
