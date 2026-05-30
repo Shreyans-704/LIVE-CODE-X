@@ -17,6 +17,9 @@ A real‑time collaborative code editor with rooms, built with React (CRA) and E
 - 🖥️ Client: React 18, React Router, CodeMirror 5, Bootstrap, react-hot-toast
 - 🛠️ Server: Node.js (>= 18), Express 5, Socket.IO, CORS (dev only)
 
+## 🏗️ System Architecture Overview
+<img width="1511" height="1041" alt="image" src="https://github.com/user-attachments/assets/a2b30d53-179d-4087-bcc7-135a60d4e5b1" />
+
 ## Preview of the website
 
 <img width="1907" height="869" alt="image" src="https://github.com/user-attachments/assets/8d1cd1b5-7d5a-4712-b187-61e6c5a2eb50" />
