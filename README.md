@@ -21,7 +21,8 @@ A real‑time collaborative code editor with rooms, built with React (CRA) and E
 <img width="1511" height="1041" alt="image" src="https://github.com/user-attachments/assets/a2b30d53-179d-4087-bcc7-135a60d4e5b1" />
 
 ## Preview of the website
+<img width="1897" height="870" alt="image" src="https://github.com/user-attachments/assets/1f5e2e72-47a7-41c3-88bd-c92a0eb8502b" />
+<img width="1890" height="870" alt="image" src="https://github.com/user-attachments/assets/2133b698-2276-4361-963e-2a762d5ffd75" />
+<img width="1917" height="871" alt="image" src="https://github.com/user-attachments/assets/651ecf1b-320b-478c-90c3-bb02414e3cbb" />
 
-![Preview 1](https://github.com/user-attachments/assets/803c7c11-7103-4d96-818d-6aeea54bb72a)
-![Preview 2](https://github.com/user-attachments/assets/637a3165-578d-42e6-9870-0741020f9138)
 
