@@ -54,13 +54,17 @@ function EditorPage() {
         const init = async () => {
             socketRef.current = await initSocket();
             setSocket(socketRef.current);
-            socketRef.current.on('connect_error', (err) => handleErrors(err));
+            socketRef.current.on('connect_error', (err) => {
+                console.log("Socket Error: ", err);
+            });
             socketRef.current.on('connect_failed', (err) => handleErrors(err));
             
-            socketRef.current.emit('join', {
-                roomid,
-                username: location.state?.username,
-            })
+            socketRef.current.on('connect', () => {
+                socketRef.current.emit('join', {
+                    roomid,
+                    username: location.state?.username,
+                });
+            });
 
             socketRef.current.on('joined', ({clients, username, socketId}) => {
                 setClients(clients);
